@@ -7,62 +7,44 @@ const books = [
     { title: 'Guerre et Paix', id: 748147, rented: 19 }
 ];
 
-let n = 0;
+let rentedBooks = true;
 books.forEach(book => {
-    if (book.rented !== 0) {
-        n++;
-    }
-})
-console.log(n === books.length);
+ if (book.rented === 0){
+  rentedBooks = false;
+ }
+});
 
-let maxRented;
-let maxBook = 0;
+if (rentedBooks == true) {
+  console.log("Tous les livres ont été empruntés au moins une fois.");
+} else {
+  console.log("Au moins un livre n'a jamais été emprunté.");
+}
+
+books.sort( (a, b) => (b.rented - a.rented) );
+console.log(`Le livre le plus emprunté est "${books[0].title}"`)
+
+books.sort( (a, b) => (a.rented - b.rented) );
+console.log(`Le livre le moins emprunté est "${books[0].title}"`)
+
 books.forEach(book => {
-    if (book.rented > maxBook) {
-        maxBook = book.rented;
-        maxRented = book;
-    }
-})
-console.log(`Le livre le plus emprunté est : ${maxRented.title}`)
+  if (book.id === 873495) {
+    console.log(`Le livre avec l'ID 873495 est "${book.title}"`);
+  }
+});
 
-let minRented;
-let minBook = Infinity;
-books.forEach(book => {
-    if (book.rented < minBook) {
-        minBook = book.rented;
-        minRented = book;
-    }
-})
-console.log(`Le livre le moins emprunté est : ${minRented.title}`)
-
-let searchBook;
-books.forEach(book => {
-    if (book.id === 873495) {
-        searchBook = book;
-    }
-})
-console.log(`Le livre avec l'id 873495 est : ${searchBook.title}`);
-
-/*
-let search = books.find(books.id[873495]);
-console.log(`Le livre avec l'id 873495 est : ${search.title}`);
-*/
-
-let index;
-books.forEach((book, i) => {
-    if (book.id === 133712) {
-        index = i;
-    }
-})
-books.splice(index, 1);
+let index = books.findIndex(book => book.id === 133712);
+books.splice(index,1);
 console.log(books);
 
-/*
-let deleteBook = books.id.find(id[133712])
-books = books.filter(item => item !== deleteBook)
+books.sort(function(a, b) {
+  let nameA = a.title.toUpperCase(); 
+  let nameB = b.title.toUpperCase(); 
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+  return 0;
+});
 console.log(books)
-*/
-
-let bookOrder = books.sort(books.title);
-console.log(bookOrder);
-

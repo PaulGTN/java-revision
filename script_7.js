@@ -14,7 +14,6 @@ books.forEach(book => {
     }
 })
 console.log(n === books.length);
-console.log(books.length)
 
 let maxRented;
 let maxBook = 0;
@@ -44,6 +43,11 @@ books.forEach(book => {
 })
 console.log(`Le livre avec l'id 873495 est : ${searchBook.title}`);
 
+/*
+let search = books.find(books.id[873495]);
+console.log(`Le livre avec l'id 873495 est : ${search.title}`);
+*/
+
 let index;
 books.forEach((book, i) => {
     if (book.id === 133712) {
@@ -54,14 +58,11 @@ books.splice(index, 1);
 console.log(books);
 
 /*
-let deleteBook = books.splice(books.id[133712])
-console.log(deleteBook)
+let deleteBook = books.id.find(id[133712])
+books = books.filter(item => item !== deleteBook)
+console.log(books)
 */
 
 let bookOrder = books.sort(books.title);
 console.log(bookOrder);
 
-/*
-let search = books.find(id)
-console.log(`Le livre avec l'id 873495 est : ${search.title}`);
-*/

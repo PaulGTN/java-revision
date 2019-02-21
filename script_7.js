@@ -53,6 +53,11 @@ books.forEach((book, i) => {
 books.splice(index, 1);
 console.log(books);
 
+/*
+let deleteBook = books.splice(books.id[133712])
+console.log(deleteBook)
+*/
+
 let bookOrder = books.sort(books.title);
 console.log(bookOrder);
 

@@ -36,5 +36,15 @@ entrepreneurs.map((e, i) => {
     console.log(e.last + ":" + age[i])
 });
 
-let lastOrder = entrepreneurs.sort(entrepreneurs.last)
-console.log(lastOrder)
+entrepreneurs.sort(function(a, b) {
+    let nameA = a.last.toUpperCase();
+    let nameB = b.last.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
+  console.log(entrepreneurs)
